@@ -7,7 +7,7 @@ public class CarrinhoDeCompras {
     
     private List<Item> listaItems;
 
-    public CarrinhoDeCompras(List<Item>listaItems){
+    public CarrinhoDeCompras(){
         listaItems = new ArrayList<>();
     }
 
@@ -30,9 +30,27 @@ public class CarrinhoDeCompras {
         listaItems.removeAll(segundaLista);
     }
 
-    public void calcularValorTotal(String nome, double preco, int quantidade){
-        
+    public void calcularValorTotal(){
+        double valorItem;
+        double valorTotal = 0d;
+        if(!listaItems.isEmpty()){
+            for(Item i: listaItems){
+                valorItem = i.getPreco() * i.getQuantidade();
+                valorTotal += valorItem;
+            }
+            System.out.println("Valor total das compras: "+valorTotal);
+        }else{
+            System.out.println("Carrinho de compras vazio!");
+        }
     }
 
-
+    public void exibirLista(){
+        if(!listaItems.isEmpty()){
+            for(Item i: listaItems){
+                System.out.println(i);
+            }
+        }else{
+            System.out.println("Lista vazia!");
+        }        
+    }
 }

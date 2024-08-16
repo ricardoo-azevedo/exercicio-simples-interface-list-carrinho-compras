@@ -31,5 +31,8 @@ public class Item {
         this.quantidade = quantidade;
     }
 
-    
+    @Override
+    public String toString() {
+        return "[NOME: "+nome+" |PREÇO: "+preco+" |QUANTIDADE: "+quantidade+"]";
+    }
 }
